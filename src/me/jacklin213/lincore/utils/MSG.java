@@ -14,9 +14,10 @@ public class MSG {
 	private DataStorage dataStorage;
 	private Logger log;
 	
-	public MSG(Plugin instance, Logger logger) {
+	public MSG(Plugin instance, Logger logger, DataStorage dataStorage) {
 		this.plugin = instance;
 		this.log = instance.getLogger();
+		this.dataStorage = dataStorage;
 	}
 	
 	/**
@@ -32,7 +33,7 @@ public class MSG {
 	}
 	
 	public void info(CommandSender sender){
-		sender.sendMessage(ChatColor.GOLD + " ============ " + dataStorage.getVaribale("chatPluginName") + ChatColor.GOLD + " ============ ");
+		sender.sendMessage(ChatColor.GOLD + " ============ " + dataStorage.getVaribale("chatPluginName") + ChatColor.GOLD + "============ ");
 		sender.sendMessage(ChatColor.GOLD + "Plugin name: " + ChatColor.AQUA + dataStorage.getVaribale("pluginName"));
 		sender.sendMessage(ChatColor.GOLD + "Version: " + ChatColor.AQUA + dataStorage.getVaribale("version"));
 		sender.sendMessage(ChatColor.GOLD + "Author: " + ChatColor.AQUA  + "by " + dataStorage.getVaribale("author"));

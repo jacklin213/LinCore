@@ -27,8 +27,10 @@ public class LocalConfigHandler {
 	 * ConfigHandler constructor for LinPlugin series
 	 * @param instance - The LinPlugin to be hooked to. 
 	 */
-	public LocalConfigHandler(Plugin instance){
+	public LocalConfigHandler(Plugin instance, Logger logger, DataStorage dataStorage){
 		plugin = instance;
+		this.log = logger;
+		this.dataStorage = dataStorage;
 	}
 	
 	//Methods for config
@@ -112,5 +114,6 @@ public class LocalConfigHandler {
 		dataStorage.setDescription(pdfFile.getDescription());
 		dataStorage.setPluginName(pdfFile.getName());
 		dataStorage.setVersion(pdfFile.getVersion());
+		
 	}
 }

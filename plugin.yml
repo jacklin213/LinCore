@@ -1,0 +1,6 @@
+name: LinCore
+version: 1.0
+description: The core of all LinPlugins
+author: jacklin213
+
+main: me.jacklin213.lincore.LinCore

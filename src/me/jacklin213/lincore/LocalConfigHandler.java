@@ -31,6 +31,7 @@ public class LocalConfigHandler {
 		plugin = instance;
 		this.log = logger;
 		this.dataStorage = dataStorage;
+		this.setup();
 	}
 	
 	//Methods for config

@@ -4,7 +4,6 @@ import java.util.logging.Logger;
 
 import me.jacklin213.chatalert.ChatAlert;
 import me.jacklin213.linchat.LinChat;
-import me.jacklin213.lincore.utils.DataStorage;
 import me.jacklin213.lincore.utils.Updater;
 import me.jacklin213.lincore.utils.Updater.UpdateResult;
 import me.jacklin213.lincore.utils.Updater.UpdateType;
@@ -21,7 +20,9 @@ public class LinCore extends JavaPlugin{
 	public LinCoreConfigHandler configHandler = new LinCoreConfigHandler(this);
 	
 	
+	@SuppressWarnings("unused")
 	private LinChat LinChat;
+	@SuppressWarnings("unused")
 	private ChatAlert ChatAlert;
 	
 	@Override
@@ -29,6 +30,8 @@ public class LinCore extends JavaPlugin{
 		this.setLogger();
 		configHandler.setup(this);
 		linkPlugins();
+		
+		
 		Boolean updateCheck = Boolean.valueOf(getConfig().getBoolean("UpdateCheck"));
 		Boolean autoUpdate = Boolean.valueOf(getConfig().getBoolean("AutoUpdate"));
 		

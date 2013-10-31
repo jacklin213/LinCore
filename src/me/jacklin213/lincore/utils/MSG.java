@@ -29,7 +29,7 @@ public class MSG {
 	}
 	
 	public void basicInfo(CommandSender sender){
-		sender.sendMessage(dataStorage.getVaribale("chatPluginName") + "Made by" + ChatColor.GOLD + dataStorage.getVaribale("author")); 
+		sender.sendMessage(dataStorage.getVaribale("chatPluginName") + "Made by " + ChatColor.GOLD + dataStorage.getVaribale("author")); 
 	}
 	
 	public void info(CommandSender sender){
@@ -43,7 +43,7 @@ public class MSG {
 	public void commandReply(String target, String message){
 		Player reciever = plugin.getServer().getPlayer(target);
 		if (reciever != null){
-			reciever.sendMessage(dataStorage.getVaribale("chatPluginName") + " " + message);
+			reciever.sendMessage(dataStorage.getVaribale("chatPluginName") + message);
 		}
 	}
 	

@@ -32,6 +32,7 @@ public class DataStorage {
 	public DataStorage(Plugin instance, PluginDescriptionFile pdfFile) {
 		this.plugin = instance;
 		this.pdfFile = pdfFile;
+		this.setVariables();
 	}
 	
 	// Methods
@@ -41,6 +42,21 @@ public class DataStorage {
 			return variables.get(variable);
 		}
 		return null;
+	}
+	
+	public void addVariable(String key, String value){
+		this.variables.put(key, value);
+	}
+	
+	public void removeVariable(String key){
+		this.variables.remove(key);
+	}
+	
+	public boolean contains(String key){
+		if (this.variables.containsKey(key)){
+			return true;
+		}
+		return false;
 	}
 
 	// Setters

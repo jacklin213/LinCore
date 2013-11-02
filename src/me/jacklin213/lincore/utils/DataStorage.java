@@ -37,8 +37,8 @@ public class DataStorage {
 	// Constructor
 	/**
 	 * DataStorage constructor for LinPlugin series. Runs the {@link #setVariables() setVariables}  method.
-	 * @param instance
-	 * @param pdfFile
+	 * @param instance Plugin instance
+	 * @param pdfFile PluginDescriptionFile of the plugin
 	 */
 	public DataStorage(Plugin instance, PluginDescriptionFile pdfFile) {
 		this.plugin = instance;

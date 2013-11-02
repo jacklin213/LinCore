@@ -9,6 +9,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 
+/**
+ * LocalConfigHandler is a class which handles basic configuration. If addition methods need to be added make a local class which extends to this class.
+ * @author jacklin213
+ *
+ */
 public class LocalConfigHandler {
 	
 	public static LinCore LinCore;
@@ -24,8 +29,10 @@ public class LocalConfigHandler {
 	
 	//Constructors
 	/**
-	 * ConfigHandler constructor for LinPlugin series
-	 * @param instance - The LinPlugin to be hooked to. 
+	 * LocalConfigHandler constructor for LinPlugin series. Runs the {@link #setup() setup}  method 
+	 * @param instance The LinPlugin to be hooked to. 
+	 * @param logger Plugin logger (getLogger() from main class)
+	 * @param dataStorage DataStorage instance to set and retrieve data from 
 	 */
 	public LocalConfigHandler(Plugin instance, Logger logger, DataStorage dataStorage){
 		plugin = instance;
@@ -35,6 +42,9 @@ public class LocalConfigHandler {
 	}
 	
 	//Methods for config
+	/**
+	 * Creates a config which is copied from the default config.yml, will cause and NPE if there is no default config
+	 */
 	public void createConfig(){
 		configFile = new File(pluginFolder + File.separator + "config.yml");
 		
@@ -46,6 +56,9 @@ public class LocalConfigHandler {
 		}
 	}
 	
+	/**
+	 * Reloads the config and logs message to console
+	 */
 	public void reloadConfig(){
 		plugin.reloadConfig();
 		setConfig();
@@ -54,9 +67,8 @@ public class LocalConfigHandler {
 	// Other methods
 
 	/**
-	 * Sets up the ConfigHandler for specified LinPlugin.
-	 * Runs the register, setPluginFolder, setConfigLogger, createConfig methods
-	 * @param plugin - The LinPlugin to register. 
+	 * Sets up the ConfigHandler for specified LinPlugin from the {@link #LocalConfigHandler(Plugin, Logger, DataStorage) LocalConfigHandler} constructor 
+	 * Runs the register, setPluginFolder, setConfigLogger, createConfig methods. 
 	 */
 	public void setup(){
 		if (!(plugin == null)){
@@ -72,43 +84,70 @@ public class LocalConfigHandler {
 	}
 	
 	//Getters
+	/**
+	 * Gets the config
+	 * @return FileConfiguration config
+	 */
 	public FileConfiguration getConfig(){
 		return this.config;
 	}
 	
+	/**
+	 * Returns the plugin logger.
+	 * @return Logger log
+	 */
 	public Logger getConfigLogger(){
 		return this.log;
 	}
 	
+	/**
+	 * Gets the absolute path of the plugin datafolder.
+	 * @return String dataFolder
+	 */
 	public String getPluginFolder(){
 		return plugin.getDataFolder().getAbsolutePath();
 	}
 	
 	//Setters
+	/**
+	 * Sets the config from the plugin class.
+	 */
 	public void setConfig() {
 		this.config = plugin.getConfig();
 	}
 	
+	/**
+	 * Sets the logger form the plugin class.
+	 */
 	public void setConfigLogger(){
 		this.log = plugin.getLogger();
 	}
 	
 	/**
-	 * Sets the instance of the DataStorage class for the ConfigHandler class
-	 * @param instance - DataStorage instance (Should be declared in main class)
+	 * Sets the instance of the DataStorage class for the ConfigHandler class.
+	 * @param instance DataStorage instance (Should be declared in main class)
 	 */
 	public void setDataStorageClass(DataStorage instance){
 		this.dataStorage = instance;
 	}
 	
+	/**
+	 * Sets the PluginDesciptionFile.
+	 */
 	public void setPluginDescriptionFile(){
 		this.pdfFile = plugin.getDescription();
 	}
 	
+	/**
+	 * Sets the pluginFolder.
+	 */
 	public void setPluginFolder(){
 		pluginFolder = plugin.getDataFolder().getAbsolutePath();
 	}
-
+	
+	/**
+	 * Assigns the Strings to their specified variables in the {@link me.jacklin213.lincore.utils.DataStorage DataStorage} class
+	 */
 	public void assignVariableStrings(){
 		//PDFFile Stuff
 		dataStorage.setAuthor(pdfFile.getName());

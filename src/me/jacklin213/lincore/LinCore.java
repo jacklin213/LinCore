@@ -12,6 +12,11 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/**
+ * LinCore main class which extends to JavaPlugin.
+ * @author jacklin213
+ *
+ */
 public class LinCore extends JavaPlugin{
 	
 	public static LinCore LinCore;
@@ -64,7 +69,8 @@ public class LinCore extends JavaPlugin{
 		linkPlugin("ChatAlert");
 	}
 	
-	public boolean isPluginNull(Plugin plugin){
+	@SuppressWarnings("unused")
+	private boolean isPluginNull(Plugin plugin){
 		if (plugin !=null){
 			return true;
 		}

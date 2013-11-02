@@ -6,6 +6,11 @@ import java.util.logging.Logger;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 
+/**
+ * LinCoreConfigHandler currently under testing, for the mean time refer to {@link LocalConfigHandler} class.
+ * @author jacklin213
+ *
+ */
 public class LinCoreConfigHandler {
 	
 	public static LinCore LinCore;
